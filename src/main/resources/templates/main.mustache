@@ -1,0 +1,65 @@
+<html>
+<head>
+    <title>Main</title>
+    <style>
+        body{
+            background-color: burlywood;
+            font-size: 2em;
+        }
+        a{
+            color: purple;
+            text-decoration: none;
+        }
+        b{
+            color: brown;
+        }
+        i{
+            color: chocolate;
+        }
+        strong{
+            color: darkred;
+        }
+    </style>
+</head>
+<body>
+<h1>Main page</h1>
+<form action="/login" method="post">
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}">
+    <input type="submit" value="Sign Out"/>
+</form>
+
+<div>
+    <form method="post" action="/main">
+        <input type="text" name="text" placeholder="Введите сообщение...">
+        <br>
+        <input type="text" name="tag" placeholder="Введите тэг">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}">
+        <br>
+        <button type="submit">Добавить</button>
+    </form>
+</div>
+<br>
+
+<div>
+    <form method="post" action="/filter">
+        <input type="text" name="text" placeholder="Введите сообщение"/>
+        <br>
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+        <button type="submit">Найти</button>
+    </form>
+    <br>
+</div>
+
+<div>
+    <h1>Список сообщении: </h1>
+    <span>{{#messages}}
+        <b>{{id}}</b>
+        <b>{{text}}</b>
+        <i>{{tag}}</i>
+        <strong>{{authorName}}</strong>
+        <br>
+    {{/messages}}</span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>Registration</title>
+    <style>
+        body{
+            background-color: darkgray;
+            font-size: 2em;
+        }
+        h1{
+            color: darkslateblue;
+        }
+        a{
+            color: purple;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<h1>Page Registration</h1>
+<form method="post" action="/registration">
+    <label for="username">Username</label>
+    <input type="text" name="username" placeholder="username">
+    <br>
+    <label for="password">Password</label>
+    <input type="text" name="password" placeholder="password">
+    <br>
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}">
+    <button type="submit">ADD</button>
+    <br>
+    <strong><a href="/login">Back</a></strong>
+</form>
+</body>
+</html>
